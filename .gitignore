@@ -47,3 +47,5 @@
 *.res
 *.user
 *.filter
+
+Debug/
