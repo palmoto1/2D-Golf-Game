@@ -17,7 +17,7 @@ constexpr std::size_t MAX_COMPONENTS = 16;
 
 
 template<typename T, std::enable_if_t<std::is_base_of_v<Component, T>, bool> = true>
-inline int getID() {
+inline std::size_t getID() {
 	static std::size_t nextID = ID++;
 	return nextID;
 }
