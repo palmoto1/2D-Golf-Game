@@ -15,8 +15,8 @@ class GameManager;
 class AssetManager;
 class Vector;
 
-constexpr int MAX_LEVEL = 5;
-constexpr int MAX_STROKES = 10;
+constexpr std::size_t MAX_LEVEL = 5;
+constexpr std::size_t MAX_STROKES = 10;
 
 
 class GameEngine
@@ -70,10 +70,10 @@ private:
 	std::string resPath;
 
 	Uint32 frameStart = 0u;
-	int frameTime = 0;
+	std::size_t frameTime = 0;
 
-	int score = 0;
-	int strokes = 0;
+	std::size_t score = 0;
+	std::size_t strokes = 0;
 
 
 };

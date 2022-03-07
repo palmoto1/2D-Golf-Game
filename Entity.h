@@ -12,13 +12,13 @@
 
 class EntityManager;
 
-static int ID = 0;
-constexpr int MAX_COMPONENTS = 16;
+static std::size_t ID = 0;
+constexpr std::size_t MAX_COMPONENTS = 16;
 
 
 template<typename T, std::enable_if_t<std::is_base_of_v<Component, T>, bool> = true>
 inline int getID() {
-	static int nextID = ID++;
+	static std::size_t nextID = ID++;
 	return nextID;
 }
 
@@ -66,12 +66,6 @@ public:
 	template <typename T, std::enable_if_t<std::is_base_of_v<Component, T>, bool> = true>
 	T& getComponent() const {
 		return *static_cast<T*>(componentArray[getID<T>()]);
-
-		for (Component* component : components) {
-			if (dynamic_cast<T*>(component)) {
-				return *static_cast<T*>(component);
-			}
-		}
 	}
 
 	~Entity() {
